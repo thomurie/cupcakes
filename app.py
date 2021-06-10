@@ -31,12 +31,17 @@ def add_a_cupcake():
 
     resp = request.json
 
+    print(resp)
+    print('*******')
+
     cupcake = Cupcake(
         flavor = resp['flavor'],
         size = resp['size'],
         rating = resp['rating'],
-        image = resp['image']
+        image = resp['image'],
     )
+
+    print(cupcake)
     db.session.add(cupcake)
     db.session.commit()
 
@@ -51,7 +56,6 @@ def update_a_cupcake_by_id(cupcake_id):
     cupcake.flavor = resp['flavor'],
     cupcake.size = resp['size'],
     cupcake.rating = resp['rating'],
-    cupcake.image = resp['image']
 
     db.session.add(cupcake)
     db.session.commit()
